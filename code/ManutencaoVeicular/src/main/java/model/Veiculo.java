@@ -32,6 +32,16 @@ public class Veiculo {
         this.modelo = modelo;
     }
 
+    @Override
+    public String toString() {
+        return "Veiculo{" +
+                "marca='" + marca + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", ano=" + ano +
+                ", placa='" + placa + '\'' +
+                '}';
+    }
+
     public int getAno() {
         return ano;
     }

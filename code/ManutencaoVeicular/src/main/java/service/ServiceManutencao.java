@@ -4,10 +4,12 @@ import model.Servico;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Scanner;
 
 public class ServiceManutencao {
 
     private List<Servico> servicos;
+    Scanner scanner = new Scanner(System.in);
 
     public ServiceManutencao() {
         this.servicos = new ArrayList<>();
@@ -20,8 +22,11 @@ public class ServiceManutencao {
     }
 
     // READ - Listar todos os serviços
-    public List<Servico> listarServicos() {
-        return servicos;
+    public void listarServicos() {
+
+        for(Servico servico : servicos) {
+            System.out.println(servico);
+        }
     }
 
     // READ - Buscar um serviço por ID
@@ -32,16 +37,29 @@ public class ServiceManutencao {
     }
 
     // UPDATE - Atualizar um serviço existente
-    public boolean atualizarServico(int id, Servico servicoAtualizado) {
+    public void atualizarStatusServico(int id) {
         Optional<Servico> servicoOptional = buscarServicoPorId(id);
+
         if (servicoOptional.isPresent()) {
             Servico servico = servicoOptional.get();
-            servico.setDescricao(servicoAtualizado.getDescricao());
-            System.out.println("Serviço atualizado: " + servico.getDescricao());
-            return true;
+            System.out.println("Você deseja marcar o serviço como: 1-finalizado 2-não finalizado");
+            int opcao = scanner.nextInt();
+
+            if (opcao == 1) {
+                servico.setFinalizado(true);
+                System.out.println("Status alterado com sucesso!");
+            } else if (opcao == 2) {
+                servico.setFinalizado(false);
+                System.out.println("Status alterado com sucesso!");
+            } else {
+                System.out.println("Opção inválida! Por favor, selecione 1 ou 2.");
+            }
+        } else {
+            System.out.println("Serviço não encontrado!!!");
         }
-        return false;
+        // scanner.close(); // Se o Scanner for global, não feche aqui
     }
+
 
     // DELETE - Remover um serviço
     public boolean removerServico(int id) {

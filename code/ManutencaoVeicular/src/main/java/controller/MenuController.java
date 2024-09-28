@@ -1,19 +1,12 @@
 package controller;
 
-import model.Usuario;
 import java.util.Scanner;
 
 public class MenuController {
 
     Scanner scanner = new Scanner(System.in);
-    Usuario user = new Usuario();
 
     public void displayMenu() {
-        System.out.print("Insira o nome do usuario: ");
-        user.setNome(scanner.nextLine());
-
-        System.out.print("Insira a senha: ");
-        user.setSenha(scanner.nextLine());
 
         int option;
         do {

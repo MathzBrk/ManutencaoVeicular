@@ -8,8 +8,37 @@ public class Agendamento {
     private LocalDate data;
     private String descricao;
     private int idAgendamento;
+    private Cliente cliente;
+    private Veiculo veiculo;
 
     public Agendamento() {
+    }
+
+    public Cliente getUsuario() {
+        return cliente;
+    }
+
+    public void setUsuario(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Veiculo getVeiculo() {
+        return veiculo;
+    }
+
+    public void setVeiculo(Veiculo veiculo) {
+        this.veiculo = veiculo;
+    }
+
+    @Override
+    public String toString() {
+        return "Agendamento{" +
+                "idAgendamento=" + idAgendamento +
+                ", usuario=" + cliente +
+                ", veiculo=" + veiculo +
+                ", data=" + data +
+                ", descricao='" + descricao + '\'' +
+                '}';
     }
 
     public LocalDate getData() {

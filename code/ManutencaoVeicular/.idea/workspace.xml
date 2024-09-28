@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d2b798a-be04-4803-a41f-f8c94b3949af" name="Changes" comment="Organização dos pacotes">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Agendamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Agendamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Servico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Servico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Veiculo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Veiculo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/ServiceManutencao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ServiceManutencao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/validation/UsuarioValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/validation/UsuarioValidator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +35,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "MathzBrk"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/MathzBrk/ManutencaoVeicular.git",
+    "accountId": "fae9542d-e8b4-4336-9905-bbbb90866cbf"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -44,9 +63,9 @@
     "Application.Main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "validacao",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/mathe/OneDrive/Área de Trabalho/Calculadora",
+    "last_opened_file_path": "C:/Users/mathe/OneDrive/Área de Trabalho/manutencao/ManutencaoVeicular/code/ManutencaoVeicular",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -58,7 +77,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
       </set>
     </attachedChunks>
   </component>
@@ -81,6 +101,7 @@
       <workItem from="1727271997103" duration="514000" />
       <workItem from="1727308175850" duration="281000" />
       <workItem from="1727308470108" duration="3721000" />
+      <workItem from="1727547956300" duration="1127000" />
     </task>
     <task id="LOCAL-00001" summary="Organização dos pacotes">
       <option name="closed" value="true" />

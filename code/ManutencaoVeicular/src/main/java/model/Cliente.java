@@ -1,22 +1,30 @@
 package model;
 
-public class Usuario {
+public class Cliente {
 
     private String nome;
     private String email;
     private String telefone;
-    private String senha;
     private String cpf;
 
-    public Usuario() {
+    public Cliente() {
     }
 
-    public Usuario(String nome, String email, String telefone, String senha, String cpf) {
+    public Cliente(String nome, String email, String telefone, String cpf) {
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
-        this.senha = senha;
         this.cpf = cpf;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", telefone='" + telefone + '\'' +
+                ", cpf='" + cpf + '\'' +
+                '}';
     }
 
     public String getNome() {
@@ -41,14 +49,6 @@ public class Usuario {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 
     public String getCpf() {

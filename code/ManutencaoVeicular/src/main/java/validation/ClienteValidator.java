@@ -1,20 +1,20 @@
 package validation;
 
 import exception.ValidationException;
-import model.Usuario;
+import model.Cliente;
 
-public class UsuarioValidator {
-    public static void validar(Usuario usuario) throws ValidationException {
-        if (usuario == null) {
+public class ClienteValidator {
+    public static void validar(Cliente cliente) throws ValidationException {
+        if (cliente == null) {
             throw new ValidationException("Usuário não pode ser nulo.");
         }
-        if (usuario.getNome() == null || usuario.getNome().isEmpty()) {
+        if (cliente.getNome() == null || cliente.getNome().isEmpty()) {
             throw new ValidationException("Nome do usuário não pode ser vazio.");
         }
-        if (!isValidEmail(usuario.getEmail())) {
+        if (!isValidEmail(cliente.getEmail())) {
             throw new ValidationException("E-mail inválido.");
         }
-        validarCpf(usuario.getCpf());
+        validarCpf(cliente.getCpf());
     }
 
     private static boolean isValidEmail(String email) {
@@ -25,14 +25,12 @@ public class UsuarioValidator {
         if (cpf == null || cpf.isEmpty()) {
             throw new ValidationException("CPF não pode ser vazio.");
         }
-        // Remove caracteres não numéricos
+
         String cpfNumeros = cpf.replaceAll("\\D", "");
 
-        // Verifica se o CPF tem exatamente 11 dígitos
         if (cpfNumeros.length() != 11) {
             throw new ValidationException("CPF deve conter exatamente 11 dígitos.");
         }
 
-        // Você pode adicionar validações adicionais aqui, como verificar se todos os dígitos são iguais, etc.
     }
 }
