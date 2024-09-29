@@ -1,5 +1,6 @@
 package main;
 
+import controller.MenuController;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -11,6 +12,9 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Sejam bem vindos ao serviço de Manutenção Veicular!!!");
+
+        MenuController menu = new MenuController();
+
+        menu.displayMenu();
     }
 }
