@@ -5,11 +5,21 @@ public class Servico {
     private String descricao;
     private int idServico;
     private boolean finalizado;
+    private double preco;
 
-    public Servico(String descricao, int idServico) {
+    public double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
+
+    public Servico(String descricao, double preco, int idServico) {
         this.descricao = descricao;
         this.idServico = idServico;
         this.finalizado = false;
+        this.preco = preco;
     }
 
     public Servico() {
@@ -32,6 +42,7 @@ public class Servico {
         return "Servico{" +
                 "idServico=" + idServico +
                 ", descricao='" + descricao + '\'' +
+                ", preco=" + preco +
                 ", finalizado=" + finalizado +
                 '}';
     }

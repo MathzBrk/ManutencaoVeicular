@@ -6,7 +6,7 @@ import model.Cliente;
 public class ClienteValidator {
     public static void validar(Cliente cliente) throws ValidationException {
         if (cliente == null) {
-            throw new ValidationException("Usuário não pode ser nulo.");
+            throw new ValidationException("Cliente não pode ser nulo.");
         }
         if (cliente.getNome() == null || cliente.getNome().isEmpty()) {
             throw new ValidationException("Nome do usuário não pode ser vazio.");
