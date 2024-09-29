@@ -22,12 +22,20 @@ public class Agendamento {
         this.data = data;
     }
 
-    public Cliente getUsuario() {
+    public Cliente getCliente() {
         return cliente;
     }
 
-    public void setUsuario(Cliente cliente) {
+    public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public Servico getServico() {
+        return servico;
+    }
+
+    public void setServico(Servico servico) {
+        this.servico = servico;
     }
 
     public Veiculo getVeiculo() {
