@@ -18,7 +18,7 @@ public class ServicoTest {
     }
 
     @Test
-    public void testGetpreco() {
+    public void testGetPreco() {
         assertEquals(100.0, servico.getPreco(), 0.01);
     }
 
