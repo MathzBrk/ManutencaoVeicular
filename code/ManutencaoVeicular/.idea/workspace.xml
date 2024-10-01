@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d2b798a-be04-4803-a41f-f8c94b3949af" name="Changes" comment=".">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Agendamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Agendamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/AgendamentoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/AgendamentoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/ClienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ClienteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/ServiceManutencao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ServiceManutencao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/VeiculoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/VeiculoService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +59,7 @@
     "Application.Main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "validacaoAgendamento",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/mathe/OneDrive/Área de Trabalho/manutencao/ManutencaoVeicular/code/ManutencaoVeicular",
     "node.js.detected.package.eslint": "true",

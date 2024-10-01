@@ -57,19 +57,18 @@ public class ServiceManutencao {
         } else {
             System.out.println("Serviço não encontrado!!!");
         }
-        // scanner.close(); // Se o Scanner for global, não feche aqui
     }
 
 
     // DELETE - Remover um serviço
-    public boolean removerServico(int id) {
+    public void removerServico(int id) {
         Optional<Servico> servicoOptional = buscarServicoPorId(id);
         if (servicoOptional.isPresent()) {
             servicos.remove(servicoOptional.get());
             System.out.println("Serviço removido.");
-            return true;
+        }else{
+            System.out.println("Serviço não encontrado");
         }
-        return false;
     }
 }
 

@@ -32,6 +32,26 @@ public class ClienteService {
                 .filter(cliente -> cliente.getEmail().equals(email))
                 .findFirst();
     }
+    public void atualizarEmailCliente(String email, String cpf){
+        Optional<Cliente> cliente = consultarPorCpf(cpf);
+        if(cliente.isPresent()){
+            cliente.get().setEmail(email);
+            System.out.println("Email atualizado com sucesso");
+        }
+        else {
+            System.out.println("Cliente não encontrado");
+        }
+    }
+
+    public void atualizarTelefoneCliente(String telefone, String cpf){
+        Optional<Cliente> cliente = consultarPorCpf(cpf);
+        if(cliente.isPresent()){
+            cliente.get().setTelefone(telefone);
+            System.out.println("Telefone atualizado com sucesso");
+        }else{
+            System.out.println("Cliente não encontrado");
+        }
+    }
 
     public void removerClientePorCpf(String cpf) {
         consultarPorCpf(cpf).ifPresent(clienteList::remove);

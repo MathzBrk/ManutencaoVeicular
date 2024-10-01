@@ -29,26 +29,25 @@ public class AgendamentoService {
                 .findFirst();
     }
 
-    public boolean atualizarAgendamento(int id, Agendamento agendamentoAtualizado) {
+    public void atualizarAgendamento(int id, Agendamento agendamentoAtualizado) {
         Optional<Agendamento> agendamentoOptional = buscarAgendamentoPorId(id);
         if (agendamentoOptional.isPresent()) {
             Agendamento agendamento = agendamentoOptional.get();
             agendamento.setIdAgendamento(agendamentoAtualizado.getIdAgendamento());
             System.out.println("Agendamento atualizado: " + agendamento.getIdAgendamento());
-            return true;
         }
-        return false;
     }
 
 
-    public boolean removerAgendamento(int id) {
+    public void removerAgendamento(int id) {
         Optional<Agendamento> agendamentoOptional = buscarAgendamentoPorId(id);
         if (agendamentoOptional.isPresent()) {
             agendamentos.remove(agendamentoOptional.get());
             System.out.println("Agendamento removido.");
-            return true;
         }
-        return false;
+        else {
+            System.out.println("Agendamento não encontrado");
+        }
     }
 }
 

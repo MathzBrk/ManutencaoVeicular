@@ -9,12 +9,10 @@ import java.util.Optional;
 public class VeiculoService {
     private List<Veiculo> veiculos = new ArrayList<>();
 
-    // Create
     public void adicionarVeiculo(Veiculo veiculo) {
         veiculos.add(veiculo);
     }
 
-    // Read
     public List<Veiculo> listarVeiculos() {
         return veiculos;
     }
@@ -23,7 +21,6 @@ public class VeiculoService {
         return veiculos.stream().filter(v -> v.getPlaca().equalsIgnoreCase(placa)).findFirst();
     }
 
-    // Update
     public Optional<Veiculo> atualizarVeiculo(String placa, Veiculo veiculoAtualizado) {
         Optional<Veiculo> veiculoOpt = buscarVeiculo(placa);
         if (veiculoOpt.isPresent()) {
@@ -36,9 +33,15 @@ public class VeiculoService {
         return Optional.empty();
     }
 
-    // Delete
-    public boolean removerVeiculo(String placa) {
-        return veiculos.removeIf(v -> v.getPlaca().equalsIgnoreCase(placa));
+    public void removerVeiculo(String placa) {
+        Optional<Veiculo> veiculo = buscarVeiculo(placa);
+        if (veiculo.isPresent()) {
+            veiculos.remove(veiculo.get());
+            System.out.println("Veiculo removido com sucesso!");
+        }else{
+            System.out.println("Veiculo não encontrado!");
+        }
+
     }
 
 }
