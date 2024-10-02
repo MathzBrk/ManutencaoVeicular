@@ -3,9 +3,10 @@
 package model;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class Agendamento {
-    private LocalDate data;
+    private Date data;
     private int idAgendamento;
     private Cliente cliente;
     private Veiculo veiculo;
@@ -14,7 +15,7 @@ public class Agendamento {
     public Agendamento() {
     }
 
-    public Agendamento(int idAgendamento, Cliente cliente, Veiculo veiculo, Servico servico, LocalDate data) {
+    public Agendamento(int idAgendamento, Cliente cliente, Veiculo veiculo, Servico servico, Date data) {
         this.idAgendamento = idAgendamento;
         this.cliente = cliente;
         this.veiculo = veiculo;
@@ -46,11 +47,11 @@ public class Agendamento {
         this.veiculo = veiculo;
     }
 
-    public LocalDate getData() {
+    public Date getData() {
         return data;
     }
 
-    public void setData(LocalDate data) {
+    public void setData(Date data) {
         this.data = data;
     }
 
