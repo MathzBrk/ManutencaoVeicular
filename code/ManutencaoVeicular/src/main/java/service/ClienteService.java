@@ -22,20 +22,22 @@ public class ClienteService {
         return clienteList;
     }
 
-    public Optional<Cliente> consultarPorCpf(String cpf) {
+    public Cliente consultarPorCpf(String cpf) {
         return clienteList.stream()
                 .filter(cliente -> cliente.getCpf().equals(cpf))
-                .findFirst();
+                .findFirst()
+                .orElse(null);
     }
-    public Optional<Cliente> consultarPorEmail(String email) {
+    public Cliente consultarPorEmail(String email) {
         return clienteList.stream()
                 .filter(cliente -> cliente.getEmail().equals(email))
-                .findFirst();
+                .findFirst()
+                .orElse(null);
     }
     public void atualizarEmailCliente(String email, String cpf){
-        Optional<Cliente> cliente = consultarPorCpf(cpf);
-        if(cliente.isPresent()){
-            cliente.get().setEmail(email);
+        Cliente cliente = consultarPorCpf(cpf);
+        if(cliente != null){
+            cliente.setEmail(email);
             System.out.println("Email atualizado com sucesso");
         }
         else {
@@ -44,9 +46,9 @@ public class ClienteService {
     }
 
     public void atualizarTelefoneCliente(String telefone, String cpf){
-        Optional<Cliente> cliente = consultarPorCpf(cpf);
-        if(cliente.isPresent()){
-            cliente.get().setTelefone(telefone);
+        Cliente cliente = consultarPorCpf(cpf);
+        if(cliente != null){
+            cliente.setTelefone(telefone);
             System.out.println("Telefone atualizado com sucesso");
         }else{
             System.out.println("Cliente não encontrado");
@@ -54,10 +56,12 @@ public class ClienteService {
     }
 
     public void removerClientePorCpf(String cpf) {
-        consultarPorCpf(cpf).ifPresent(clienteList::remove);
+        Cliente cliente = consultarPorCpf(cpf);
+        clienteList.remove(cliente);
     }
 
     public void removerClientePorEmail(String email) {
-        consultarPorEmail(email).ifPresent(clienteList::remove);
+        Cliente cliente = consultarPorEmail(email);
+        clienteList.remove(cliente);
     }
 }

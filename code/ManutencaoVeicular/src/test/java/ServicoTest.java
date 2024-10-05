@@ -9,7 +9,8 @@ public class ServicoTest {
 
     @BeforeEach
     public void setUp() {
-        servico = new Servico("Troca de pneu", 100.0, 1);
+        servico = new Servico("Troca de pneu", 100.0);
+        servico.setIdServico(1);
     }
 
     @Test
@@ -35,6 +36,11 @@ public class ServicoTest {
         assertTrue(servico.isFinalizado());
     }
 
+    @Test
+    public void testSetIdServico(){
+        servico.setIdServico(1);
+        assertEquals(1, servico.getIdServico());
+    }
     @Test
     public void testIdServico() {
         assertEquals(1, servico.getIdServico());

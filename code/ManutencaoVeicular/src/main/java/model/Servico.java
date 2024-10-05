@@ -1,5 +1,7 @@
 package model;
 
+import service.GeradorId;
+
 public class Servico {
 
     private String descricao;
@@ -15,9 +17,9 @@ public class Servico {
         this.preco = preco;
     }
 
-    public Servico(String descricao, double preco, int idServico) {
+    public Servico(String descricao, double preco) {
         this.descricao = descricao;
-        this.idServico = idServico;
+        this.idServico = GeradorId.getProximoId();
         this.finalizado = false;
         this.preco = preco;
     }

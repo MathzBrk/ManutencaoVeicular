@@ -2,25 +2,29 @@
 
 package model;
 
+import service.GeradorId;
+
 import java.time.LocalDate;
 import java.util.Date;
 
 public class Agendamento {
-    private Date data;
+    private LocalDate data;
     private int idAgendamento;
     private Cliente cliente;
     private Veiculo veiculo;
     private Servico servico;
+    private Integer id;
 
     public Agendamento() {
     }
 
-    public Agendamento(int idAgendamento, Cliente cliente, Veiculo veiculo, Servico servico, Date data) {
+    public Agendamento(Cliente cliente, Veiculo veiculo, Servico servico, LocalDate data) {
         this.idAgendamento = idAgendamento;
         this.cliente = cliente;
         this.veiculo = veiculo;
         this.servico = servico;
         this.data = data;
+        this.id = GeradorId.getProximoId();
     }
 
     public Cliente getCliente() {
@@ -47,11 +51,11 @@ public class Agendamento {
         this.veiculo = veiculo;
     }
 
-    public Date getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 

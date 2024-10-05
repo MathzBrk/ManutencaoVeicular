@@ -3,45 +3,38 @@ package service;
 import model.Servico;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.Scanner;
 
-public class ServiceManutencao {
+public class ServicoService {
 
     private List<Servico> servicos;
     Scanner scanner = new Scanner(System.in);
 
-    public ServiceManutencao() {
+    public ServicoService() {
         this.servicos = new ArrayList<>();
     }
 
-    // CREATE - Adicionar um novo serviço
     public void adicionarServico(Servico servico) {
         servicos.add(servico);
         System.out.println("Serviço adicionado: " + servico.getDescricao());
     }
 
-    // READ - Listar todos os serviços
     public void listarServicos() {
-
-        for(Servico servico : servicos) {
+        for (Servico servico : servicos) {
             System.out.println(servico);
         }
     }
 
-    // READ - Buscar um serviço por ID
-    public Optional<Servico> buscarServicoPorId(int id) {
+    public Servico buscarServicoPorId(int id) {
         return servicos.stream()
                 .filter(servico -> servico.getIdServico() == id)
-                .findFirst();
+                .findFirst()
+                .orElse(null);
     }
 
-    // UPDATE - Atualizar um serviço existente
     public void atualizarStatusServico(int id) {
-        Optional<Servico> servicoOptional = buscarServicoPorId(id);
-
-        if (servicoOptional.isPresent()) {
-            Servico servico = servicoOptional.get();
+        Servico servico = buscarServicoPorId(id);
+        if (servico != null) {
             System.out.println("Você deseja marcar o serviço como: 1-finalizado 2-não finalizado");
             int opcao = scanner.nextInt();
 
@@ -59,16 +52,13 @@ public class ServiceManutencao {
         }
     }
 
-
-    // DELETE - Remover um serviço
     public void removerServico(int id) {
-        Optional<Servico> servicoOptional = buscarServicoPorId(id);
-        if (servicoOptional.isPresent()) {
-            servicos.remove(servicoOptional.get());
+        Servico servico = buscarServicoPorId(id);
+        if (servico != null) {
+            servicos.remove(servico);
             System.out.println("Serviço removido.");
-        }else{
+        } else {
             System.out.println("Serviço não encontrado");
         }
     }
 }
-

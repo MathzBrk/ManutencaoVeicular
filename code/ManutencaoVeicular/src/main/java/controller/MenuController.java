@@ -6,11 +6,10 @@ import model.Servico;
 import model.Veiculo;
 import service.AgendamentoService;
 import service.ClienteService;
-import service.ServiceManutencao;
+import service.ServicoService;
 import service.VeiculoService;
 
 import java.time.LocalDate;
-import java.util.Optional;
 import java.util.Scanner;
 
 public class MenuController {
@@ -18,7 +17,7 @@ public class MenuController {
     Scanner scanner = new Scanner(System.in);
     ClienteService clienteService = new ClienteService();
     VeiculoService veiculoService = new VeiculoService();
-    ServiceManutencao servicoService = new ServiceManutencao();
+    ServicoService servicoService = new ServicoService();
     AgendamentoService agendamentoService = new AgendamentoService();
     int option;
 
@@ -219,22 +218,21 @@ public class MenuController {
                 case 1:
                     System.out.println("Digite o CPF do cliente: ");
                     String cpf = scanner.nextLine();
-                    Cliente cliente = clienteService.consultarPorCpf();
+                    Cliente cliente = clienteService.consultarPorCpf(cpf);
 
                     System.out.println("Digite a placa do veículo: ");
                     String placa = scanner.nextLine();
-                    Veiculo veiculo = veiculoService.buscarVeiculo();
+                    Veiculo veiculo = veiculoService.buscarVeiculo(placa);
 
                     System.out.println("Digite o ID do serviço: ");
                     int id = scanner.nextInt();
-                    Servico servico = servicoService.buscarServicoPorId();
+                    Servico servico = servicoService.buscarServicoPorId(id);
 
                     System.out.println("Digite a data do agendamento (yyyy-mm-dd): ");
                     String dataAgendamento = scanner.nextLine();
                     LocalDate data = LocalDate.parse(dataAgendamento);
 
-                    int novoIdAgendamento = agendamentoService.gerarNovoId();
-                    Agendamento agendamento = new Agendamento(novoIdAgendamento, cliente, veiculo, servico, data);
+                    Agendamento agendamento = new Agendamento(cliente, veiculo, servico, data);
                     agendamentoService.adicionarAgendamento(agendamento);
                     System.out.println("Agendamento adicionado com sucesso.");
 
