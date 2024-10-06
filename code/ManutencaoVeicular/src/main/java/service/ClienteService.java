@@ -55,6 +55,25 @@ public class ClienteService {
         }
     }
 
+    public void atualizarClientePorCpf(String cpf, String novoNome, String novoEmail, String novoTelefone) {
+        Cliente cliente = consultarPorCpf(cpf);
+        if (cliente != null) {
+            if (!novoNome.isEmpty()) {
+                cliente.setNome(novoNome);
+            }
+            if (!novoEmail.isEmpty()) {
+                cliente.setEmail(novoEmail);
+            }
+            if (!novoTelefone.isEmpty()) {
+                cliente.setTelefone(novoTelefone);
+            }
+            System.out.println("Cliente atualizado com sucesso.");
+        } else {
+            System.out.println("Cliente não encontrado.");
+        }
+    }
+
+
     public void removerClientePorCpf(String cpf) {
         Cliente cliente = consultarPorCpf(cpf);
         clienteList.remove(cliente);
