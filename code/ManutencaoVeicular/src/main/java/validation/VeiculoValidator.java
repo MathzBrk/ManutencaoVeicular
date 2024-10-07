@@ -17,7 +17,7 @@ public class VeiculoValidator {
 
     // Validação da marca do veículo
     private static void validarMarca(String marca) throws ValidationException {
-        if (marca == null || marca.trim().isEmpty()) {
+        if (marca == null) {
             throw new ValidationException("Marca do veículo não pode ser vazia.");
         }
         if (marca.length() < 2 || marca.length() > 50) {

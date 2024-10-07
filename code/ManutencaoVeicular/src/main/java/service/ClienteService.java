@@ -15,7 +15,13 @@ public class ClienteService {
         this.clienteList = new ArrayList<>();
     }
     public void adicionarCliente(Cliente cliente){
-        clienteList.add(cliente);
+        try {
+            clienteList.add(cliente);
+            System.out.println("Cliente adicionado com sucesso!");
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public List<Cliente> consultarTodos(){

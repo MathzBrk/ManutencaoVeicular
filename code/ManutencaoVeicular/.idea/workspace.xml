@@ -9,8 +9,10 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/AgendamentoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AgendamentoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ClienteController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ServicoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ServicoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/VeiculoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/VeiculoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/ClienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ClienteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/validation/ClienteValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/validation/ClienteValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/validation/VeiculoValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/validation/VeiculoValidator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,23 +58,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ServicoTest.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/mathe/Downloads/provaJava/provaJava&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.SimulacaoController.executor": "Run",
+    "JUnit.ServicoTest.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Excel",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/mathe/Downloads/provaJava/provaJava",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -107,7 +110,7 @@
       <workItem from="1728143970390" duration="1404000" />
       <workItem from="1728174492337" duration="8000" />
       <workItem from="1728323595306" duration="70000" />
-      <workItem from="1728323696223" duration="401000" />
+      <workItem from="1728323696223" duration="2847000" />
     </task>
     <task id="LOCAL-00001" summary="Organização dos pacotes">
       <option name="closed" value="true" />
