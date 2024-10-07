@@ -15,8 +15,12 @@ public class AgendamentoService {
     }
 
     public void adicionarAgendamento(Agendamento agendamento) {
-        agendamentos.add(agendamento);
-        System.out.println("Agendamento adicionado: " + agendamento.getIdAgendamento());
+        try {
+            agendamentos.add(agendamento);
+            System.out.println("Agendamento adicionado com sucesso!");
+        } catch (Exception e) {
+            System.out.println("Erro ao adicionar agendamento: " + e.getMessage());
+        }
     }
 
     public List<Agendamento> listarAgendamentos() {
@@ -35,6 +39,9 @@ public class AgendamentoService {
             Agendamento agendamento = agendamentoOptional.get();
             agendamento.setIdAgendamento(agendamentoAtualizado.getIdAgendamento());
             System.out.println("Agendamento atualizado: " + agendamento.getIdAgendamento());
+        }
+        else {
+            System.out.println("Não foi possivel atualizar o agendamento");
         }
     }
 

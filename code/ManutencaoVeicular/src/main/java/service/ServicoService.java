@@ -15,8 +15,12 @@ public class ServicoService {
     }
 
     public void adicionarServico(Servico servico) {
-        servicos.add(servico);
-        System.out.println("Serviço adicionado: " + servico.getDescricao());
+        try{
+            servicos.add(servico);
+            System.out.println("Serviço adicionado: " + servico.getDescricao() + " ID: " + servico.getIdServico());
+        } catch (Exception e) {
+            System.out.println("Erro ao adicionar servico: " + e.getMessage());
+        }
     }
 
     public void listarServicos() {

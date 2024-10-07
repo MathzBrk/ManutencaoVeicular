@@ -8,11 +8,11 @@ import java.util.Scanner;
 
 public class MenuController {
 
-    ClienteController clienteController = new ClienteController();
-    VeiculoController veiculoController = new VeiculoController();
-    ServicoController servicoController = new ServicoController();
-    AgendamentoController agendamentoController = new AgendamentoController();
-    AgendamentoExcelExporter agendamentoExcelExporter = new AgendamentoExcelExporter();
+    private ClienteController clienteController = new ClienteController();
+    private VeiculoController veiculoController = new VeiculoController();
+    private ServicoController servicoController = new ServicoController();
+    private AgendamentoController agendamentoController = new AgendamentoController(clienteController.getClienteService(), veiculoController.getVeiculoService(), servicoController.getServicoService());
+    private AgendamentoExcelExporter agendamentoExcelExporter = new AgendamentoExcelExporter();
 
     public void displayMenu() throws ValidationException {
         Scanner scanner = new Scanner(System.in);
@@ -28,6 +28,7 @@ public class MenuController {
             System.out.println("0. Sair");
             System.out.print("Escolha uma opção: ");
             option = scanner.nextInt();
+            scanner.nextLine();
 
             switch (option) {
                 case 1:

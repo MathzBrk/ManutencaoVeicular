@@ -12,6 +12,10 @@ public class ServicoController {
 
     ServicoService servicoService = new ServicoService();
 
+    public ServicoService getServicoService() {
+        return servicoService;
+    }
+
     public void menuServicos() throws ValidationException {
         Scanner scanner = new Scanner(System.in);
         int option;
@@ -28,28 +32,41 @@ public class ServicoController {
 
             switch (option) {
                 case 1:
-                    System.out.println("Digite a descrição do serviço: ");
-                    String descricao = scanner.next();
                     scanner.nextLine();
+                    System.out.println("Digite a descrição do serviço: ");
+                    String descricao = scanner.nextLine();
 
                     System.out.print("Digite o preço do serviço: ");
-                    double preco = scanner.nextDouble();
-                    scanner.nextLine();
+                    String precoString = scanner.nextLine();
+                    precoString = precoString.replace(",", ".");
 
-                    Servico servico = new Servico(descricao, preco);
-                    ServicoValidator.validar(servico);
-                    servicoService.adicionarServico(servico);
+                    try {
+                        double preco = Double.parseDouble(precoString); // Converter para double
+                        Servico servico = new Servico(descricao, preco);
+                        ServicoValidator.validar(servico);
+                        servicoService.adicionarServico(servico);
+                        System.out.println("Serviço adicionado com sucesso!");
+                    } catch (NumberFormatException e) {
+                        System.out.println("Erro: o preço inserido não é válido. Tente novamente.");
+                    }
 
-                    System.out.println("Serviço adicionado com ID: " + servico.getIdServico());
                     break;
                 case 2:
+                    scanner.nextLine();
                     System.out.println("Digite o ID do servico que deseja consultar: ");
                     int idServico = scanner.nextInt();
                     scanner.nextLine();
 
-                    servicoService.buscarServicoPorId(idServico);
+                    Servico servico1 = servicoService.buscarServicoPorId(idServico);
+
+                    if(servico1 != null){
+                        System.out.println(servico1);
+                    }else{
+                        System.out.println("Erro ao buscar servico");
+                    }
                     break;
                 case 3:
+                    scanner.nextLine();
                     System.out.println("Digite o ID do servico que deseja atualizar o Status: ");
                     int statusServico = scanner.nextInt();
                     scanner.nextLine();
@@ -57,6 +74,7 @@ public class ServicoController {
                     servicoService.atualizarStatusServico(statusServico);
                     break;
                 case 4:
+                    scanner.nextLine();
                     System.out.println("Digite o ID do servico que deseja remover: ");
                     idServico = scanner.nextInt();
                     scanner.nextLine();

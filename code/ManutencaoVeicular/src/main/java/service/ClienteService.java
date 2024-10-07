@@ -82,7 +82,12 @@ public class ClienteService {
 
     public void removerClientePorCpf(String cpf) {
         Cliente cliente = consultarPorCpf(cpf);
-        clienteList.remove(cliente);
+       try{
+           clienteList.remove(cliente);
+           System.out.println("Cliente removido com sucesso");
+       } catch (Exception e){
+           System.out.println("Erro ao remover cliente: " + e.getMessage());
+       }
     }
 
     public void removerClientePorEmail(String email) {

@@ -11,6 +11,14 @@ public class VeiculoController {
 
     VeiculoService veiculoService = new VeiculoService();
 
+    public VeiculoService getVeiculoService() {
+        return veiculoService;
+    }
+
+    public void setVeiculoService(VeiculoService veiculoService) {
+        this.veiculoService = veiculoService;
+    }
+
     public void menuVeiculos() throws ValidationException {
         Scanner scanner = new Scanner(System.in);
         int option;
@@ -27,35 +35,43 @@ public class VeiculoController {
 
             switch (option) {
                 case 1:
+                    scanner.nextLine();
                     System.out.println("Digite a marca do veiculo que deseja adicionar: ");
                     String marca = scanner.nextLine();
-                    scanner.nextLine();
 
                     System.out.println("Digite o modelo do veiculo: ");
                     String modelo = scanner.nextLine();
 
-                    System.out.println("Digite o ano do veiculo");
+                    System.out.println("Digite o ano do veiculo: ");
                     int ano = scanner.nextInt();
+                    scanner.nextLine();
 
                     System.out.println("Digite a placa do veiculo: ");
-                    String placa = scanner.nextLine();
+                    String placa = scanner.nextLine().toUpperCase();
 
                     Veiculo veiculo = new Veiculo(marca, modelo, ano, placa);
                     VeiculoValidator.validar(veiculo);
                     veiculoService.adicionarVeiculo(veiculo);
-                    System.out.println("Veiculo adicionado com sucesso!");
                     break;
+
                 case 2:
+                    scanner.nextLine();
                     System.out.println("Digite a placa do veiculo que deseja consultar: ");
                     placa = scanner.nextLine();
-                    scanner.nextLine();
 
-                    veiculoService.buscarVeiculo(placa);
+                    Veiculo veiculo1 = veiculoService.buscarVeiculo(placa);
+
+                    if (veiculo1 != null) {
+                        System.out.println(veiculo1);
+                    }else {
+                        System.out.println("Veiculo não encontrado");
+                    }
+
                     break;
                 case 3:
+                    scanner.nextLine();
                     System.out.println("Digite a placa do veiculo que deseja alterar: ");
                     placa = scanner.nextLine();
-                    scanner.nextLine();
 
                     System.out.println("Digite a marca do veiculo que deseja alterar: ");
                     marca = scanner.nextLine();
@@ -67,12 +83,13 @@ public class VeiculoController {
                     ano = scanner.nextInt();
 
                     Veiculo veiculoAtualizado = new Veiculo(marca, modelo, ano, placa);
+                    VeiculoValidator.validar(veiculoAtualizado);
                     veiculoService.atualizarVeiculo(placa, veiculoAtualizado);
                     break;
                 case 4:
+                    scanner.nextLine();
                     System.out.println("Digite a placa do veiculo que deseja remover: ");
                     placa = scanner.nextLine();
-                    scanner.nextLine();
 
                     veiculoService.removerVeiculo(placa);
                     break;

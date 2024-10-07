@@ -9,7 +9,12 @@ public class VeiculoService {
     private List<Veiculo> veiculos = new ArrayList<>();
 
     public void adicionarVeiculo(Veiculo veiculo) {
-        veiculos.add(veiculo);
+        try{
+            veiculos.add(veiculo);
+            System.out.println("Veiculo adicionado com sucesso!");
+        } catch(Exception e){
+            System.out.println("Erro ao adicionar veiculo!");
+        }
     }
 
     public List<Veiculo> listarVeiculos() {
@@ -23,14 +28,14 @@ public class VeiculoService {
                 .orElse(null);
     }
 
-    // Corrigido: Atualiza o veículo diretamente ou retorna null se não encontrar
+
     public Veiculo atualizarVeiculo(String placa, Veiculo veiculoAtualizado) {
         Veiculo veiculo = buscarVeiculo(placa);
         if (veiculo != null) {
             veiculo.setMarca(veiculoAtualizado.getMarca());
             veiculo.setModelo(veiculoAtualizado.getModelo());
             veiculo.setAno(veiculoAtualizado.getAno());
-            return veiculo; // Retorna o veículo atualizado
+            return veiculo;
         }
         return null;
     }
