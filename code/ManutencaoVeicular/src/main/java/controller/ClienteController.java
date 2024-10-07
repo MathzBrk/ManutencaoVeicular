@@ -1,7 +1,9 @@
 package controller;
 
+import exception.ValidationException;
 import model.Cliente;
 import service.ClienteService;
+import validation.ClienteValidator;
 
 import java.util.Scanner;
 
@@ -9,7 +11,7 @@ public class ClienteController {
 
     ClienteService clienteService = new ClienteService();
 
-    public void menuCliente() {
+    public void menuCliente() throws ValidationException {
         Scanner scanner = new Scanner(System.in);
         int option;
 
@@ -39,6 +41,7 @@ public class ClienteController {
                     String cpf = scanner.nextLine();
 
                     Cliente cliente = new Cliente(nomeCliente, emailCliente, telefone, cpf);
+                    ClienteValidator.validar(cliente);
                     clienteService.adicionarCliente(cliente);
                     break;
                 case 2:

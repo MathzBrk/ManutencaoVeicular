@@ -1,5 +1,7 @@
 package controller;
 
+import exception.ValidationException;
+
 import java.util.Scanner;
 
 public class MenuController {
@@ -9,7 +11,7 @@ public class MenuController {
     ServicoController servicoController = new ServicoController();
     AgendamentoController agendamentoController = new AgendamentoController();
 
-    public void displayMenu() {
+    public void displayMenu() throws ValidationException {
         Scanner scanner = new Scanner(System.in);
         int option;
 

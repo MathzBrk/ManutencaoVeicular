@@ -1,7 +1,9 @@
 package controller;
 
+import exception.ValidationException;
 import model.Veiculo;
 import service.VeiculoService;
+import validation.VeiculoValidator;
 
 import java.util.Scanner;
 
@@ -9,7 +11,7 @@ public class VeiculoController {
 
     VeiculoService veiculoService = new VeiculoService();
 
-    public void menuVeiculos() {
+    public void menuVeiculos() throws ValidationException {
         Scanner scanner = new Scanner(System.in);
         int option;
 
@@ -39,6 +41,7 @@ public class VeiculoController {
                     String placa = scanner.nextLine();
 
                     Veiculo veiculo = new Veiculo(marca, modelo, ano, placa);
+                    VeiculoValidator.validar(veiculo);
                     veiculoService.adicionarVeiculo(veiculo);
                     System.out.println("Veiculo adicionado com sucesso!");
                     break;

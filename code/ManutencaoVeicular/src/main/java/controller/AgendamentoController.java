@@ -1,10 +1,12 @@
 package controller;
 
+import exception.ValidationException;
 import model.Agendamento;
 import model.Cliente;
 import model.Servico;
 import model.Veiculo;
 import service.*;
+import validation.AgendamentoValidator;
 
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -16,7 +18,7 @@ public class AgendamentoController {
     Veiculo veiculo;
     Servico servico;
 
-    public void menuAgendamentos() {
+    public void menuAgendamentos() throws ValidationException {
         Scanner scanner = new Scanner(System.in);
         int option;
         ClienteService clienteService = new ClienteService();
@@ -52,6 +54,7 @@ public class AgendamentoController {
                     LocalDate data = LocalDate.parse(dataAgendamento);
 
                     Agendamento agendamento = new Agendamento(cliente, veiculo, servico, data);
+                    AgendamentoValidator.validar(agendamento);
                     agendamentoService.adicionarAgendamento(agendamento);
                     System.out.println("Agendamento adicionado com sucesso.");
 

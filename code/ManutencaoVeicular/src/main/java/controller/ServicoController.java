@@ -1,8 +1,10 @@
 package controller;
 
+import exception.ValidationException;
 import model.Servico;
 import service.GeradorId;
 import service.ServicoService;
+import validation.ServicoValidator;
 
 import java.util.Scanner;
 
@@ -10,7 +12,7 @@ public class ServicoController {
 
     ServicoService servicoService = new ServicoService();
 
-    public void menuServicos() {
+    public void menuServicos() throws ValidationException {
         Scanner scanner = new Scanner(System.in);
         int option;
 
@@ -35,6 +37,7 @@ public class ServicoController {
                     scanner.nextLine();
 
                     Servico servico = new Servico(descricao, preco);
+                    ServicoValidator.validar(servico);
                     servicoService.adicionarServico(servico);
 
                     System.out.println("Serviço adicionado com ID: " + servico.getIdServico());
