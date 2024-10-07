@@ -18,6 +18,14 @@ public class AgendamentoController {
     Veiculo veiculo;
     Servico servico;
 
+    public AgendamentoService getAgendamentoService() {
+        return agendamentoService;
+    }
+
+    public void setAgendamentoService(AgendamentoService agendamentoService) {
+        this.agendamentoService = agendamentoService;
+    }
+
     public void menuAgendamentos() throws ValidationException {
         Scanner scanner = new Scanner(System.in);
         int option;

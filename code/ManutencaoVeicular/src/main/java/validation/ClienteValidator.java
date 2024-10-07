@@ -8,7 +8,7 @@ public class ClienteValidator {
         if (cliente == null) {
             throw new ValidationException("Cliente não pode ser nulo.");
         }
-        if (cliente.getNome() == null || cliente.getNome().isEmpty()) {
+        if (cliente.getNome() == null) {
             throw new ValidationException("Nome do usuário não pode ser vazio.");
         }
         if (!isValidEmail(cliente.getEmail())) {

@@ -27,9 +27,9 @@ public class ClienteController {
 
             switch (option) {
                 case 1:
+                    scanner.nextLine();
                     System.out.println("Digite o nome do Cliente: ");
                     String nomeCliente = scanner.nextLine();
-                    scanner.nextLine();
 
                     System.out.println("Digite email do Cliente: ");
                     String emailCliente = scanner.nextLine();
@@ -45,12 +45,19 @@ public class ClienteController {
                     clienteService.adicionarCliente(cliente);
                     break;
                 case 2:
-                    System.out.println("Digite o cpf do cliente que deseja consultar: ");
-                    cpf = scanner.nextLine();
                     scanner.nextLine();
+                    System.out.println("Digite o cpf do cliente que deseja consultar: ");
+                    cpf = scanner.nextLine(); // Agora será lido corretamente
 
-                    clienteService.consultarPorCpf(cpf);
+                    Cliente cliente1 = clienteService.consultarPorCpf(cpf);
+                    if (cliente1 != null) {
+                        System.out.println(cliente1);
+                    } else {
+                        System.out.println("Cliente não encontrado.");
+                    }
                     break;
+
+
                 case 3:
                     System.out.print("Digite o CPF do cliente que deseja alterar: ");
                     cpf = scanner.nextLine();
