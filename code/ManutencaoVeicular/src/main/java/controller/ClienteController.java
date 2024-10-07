@@ -9,6 +9,10 @@ import java.util.Scanner;
 
 public class ClienteController {
 
+    public ClienteService getClienteService() {
+        return clienteService;
+    }
+
     ClienteService clienteService = new ClienteService();
 
     public void menuCliente() throws ValidationException {
@@ -59,9 +63,9 @@ public class ClienteController {
 
 
                 case 3:
+                    scanner.nextLine();
                     System.out.print("Digite o CPF do cliente que deseja alterar: ");
                     cpf = scanner.nextLine();
-                    scanner.nextLine();
 
                     System.out.print("Digite o novo nome do Cliente: ");
                     String novoNome = scanner.nextLine();
@@ -75,9 +79,9 @@ public class ClienteController {
                     clienteService.atualizarClientePorCpf(cpf, novoNome, novoEmail, novoTelefone);
                 break;
                 case 4:
+                    scanner.nextLine();
                     System.out.println("Digite o cpf do cliente que deseja remover: ");
                     cpf = scanner.nextLine();
-                    scanner.nextLine();
 
                     clienteService.removerClientePorCpf(cpf);
                     break;

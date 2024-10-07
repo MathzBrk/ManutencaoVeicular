@@ -9,14 +9,23 @@ import service.*;
 import validation.AgendamentoValidator;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class AgendamentoController {
 
-    AgendamentoService agendamentoService = new AgendamentoService();
-    Cliente cliente;
-    Veiculo veiculo;
-    Servico servico;
+    private AgendamentoService agendamentoService;
+    private ClienteService clienteService;
+    private ServicoService servicoService;
+    private VeiculoService veiculoService;
+
+    public AgendamentoController(ClienteService clienteService, VeiculoService veiculoService, ServicoService servicoService) {
+        this.agendamentoService = new AgendamentoService();
+        this.clienteService = clienteService;
+        this.veiculoService = veiculoService;
+        this.servicoService = servicoService;
+    }
 
     public AgendamentoService getAgendamentoService() {
         return agendamentoService;
@@ -29,9 +38,6 @@ public class AgendamentoController {
     public void menuAgendamentos() throws ValidationException {
         Scanner scanner = new Scanner(System.in);
         int option;
-        ClienteService clienteService = new ClienteService();
-        VeiculoService veiculoService = new VeiculoService();
-        ServicoService servicoService = new ServicoService();
 
         do {
             System.out.println("===== Gestão de Agendamentos e Status =====");
@@ -45,35 +51,70 @@ public class AgendamentoController {
 
             switch (option) {
                 case 1:
+                    scanner.nextLine();
                     System.out.println("Digite o CPF do cliente: ");
                     String cpf = scanner.nextLine();
-                    scanner.nextLine();
-                    cliente = clienteService.consultarPorCpf(cpf);
+                    Cliente cliente = clienteService.consultarPorCpf(cpf);
+
+                    if (cliente == null) {
+                        System.out.println("Cliente não encontrado.");
+                        break; // Sai do case se o cliente não for encontrado
+                    }
 
                     System.out.println("Digite a placa do veículo: ");
                     String placa = scanner.nextLine();
-                    veiculo = veiculoService.buscarVeiculo(placa);
+                    Veiculo veiculo = veiculoService.buscarVeiculo(placa);
+
+                    if (veiculo == null) {
+                        System.out.println("Veículo não encontrado.");
+                        break; // Sai do case se o veículo não for encontrado
+                    }
 
                     int novoID = GeradorId.getProximoId();
                     System.out.println("Id do agendamento: " + novoID);
 
                     System.out.println("Digite a data do agendamento (yyyy-mm-dd): ");
                     String dataAgendamento = scanner.nextLine();
-                    LocalDate data = LocalDate.parse(dataAgendamento);
+                    LocalDate data;
+
+                    try {
+                        data = LocalDate.parse(dataAgendamento);
+                    } catch (DateTimeParseException e) {
+                        System.out.println("Data inválida. Formato esperado: yyyy-mm-dd");
+                        break; // Sai do case em caso de erro
+                    }
+
+                    System.out.println("Digite qual o id do serviço: ");
+                    int id = scanner.nextInt();
+                    Servico servico = servicoService.buscarServicoPorId(id);
+
+                    if (servico == null) {
+                        System.out.println("Serviço não encontrado.");
+                        break;
+                    }
 
                     Agendamento agendamento = new Agendamento(cliente, veiculo, servico, data);
                     AgendamentoValidator.validar(agendamento);
                     agendamentoService.adicionarAgendamento(agendamento);
-                    System.out.println("Agendamento adicionado com sucesso.");
 
                     break;
                 case 2:
+                    scanner.nextLine();
                     System.out.println("Digite o ID do agendamento que deseja buscar: ");
                     int idAgendamento = scanner.nextInt();
                     scanner.nextLine();
-                    agendamentoService.buscarAgendamentoPorId(idAgendamento);
+
+                    Optional<Agendamento> agendamento1 = agendamentoService.buscarAgendamentoPorId(idAgendamento);
+
+                    if (agendamento1.isPresent()) {
+                        Agendamento agendamento2 = agendamento1.get();
+                        System.out.println(agendamento2);
+                    }else{
+                        System.out.println("Agendamento não encontrado");
+                    }
                     break;
                 case 3:
+                    scanner.nextLine();
                     System.out.println("Digite o id do agendamento que deseja atualizar: ");
                     idAgendamento = scanner.nextInt();
                     scanner.nextLine();
@@ -87,7 +128,7 @@ public class AgendamentoController {
                     veiculo = veiculoService.buscarVeiculo(placa);
 
                     System.out.println("Digite o ID do serviço: ");
-                    int id = scanner.nextInt();
+                    id = scanner.nextInt();
                     scanner.nextLine();
                     servico = servicoService.buscarServicoPorId(id);
 
@@ -96,13 +137,12 @@ public class AgendamentoController {
                     data = LocalDate.parse(dataAgendamento);
 
                     Agendamento agendamentoAtualizado = new Agendamento(cliente, veiculo, servico, data);
-                    agendamentoAtualizado.setIdAgendamento(id);
 
-                    agendamentoService.atualizarAgendamento(id, agendamentoAtualizado);
-                    System.out.println("Agendamento atualizado com sucesso.");
+                    agendamentoService.atualizarAgendamento(idAgendamento, agendamentoAtualizado);
 
                     break;
                 case 4:
+                    scanner.nextLine();
                     System.out.println("Digite o ID do agendamento que deseja remover: ");
                     idAgendamento = scanner.nextInt();
                     scanner.nextLine();
