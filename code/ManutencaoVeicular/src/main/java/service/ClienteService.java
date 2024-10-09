@@ -1,64 +1,58 @@
 package service;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import model.Cliente;
 
+import java.io.*;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-
-import static java.util.spi.ToolProvider.findFirst;
 
 public class ClienteService {
-    private List<Cliente> clienteList;
+    private List<Cliente> clientes;
+    private final String filePath = "clientes.json"; // Caminho do arquivo JSON
 
-    public ClienteService(){
-        this.clienteList = new ArrayList<>();
+    public ClienteService() {
+        this.clientes = carregarClientes(); // Carrega clientes ao iniciar o serviço
     }
-    public void adicionarCliente(Cliente cliente){
-        try {
-            clienteList.add(cliente);
-            System.out.println("Cliente adicionado com sucesso!");
-        }
-        catch (Exception e){
+
+    public void adicionarCliente(Cliente cliente) {
+        clientes.add(cliente);
+        salvarClientes(); // Salva os clientes sempre que um novo cliente é adicionado
+    }
+
+    public List<Cliente> getClientes() {
+        return clientes;
+    }
+
+    private void salvarClientes() {
+        try (Writer writer = new FileWriter(filePath)) {
+            Gson gson = new Gson();
+            gson.toJson(clientes, writer); // Converte a lista de clientes em JSON e grava no arquivo
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public List<Cliente> consultarTodos(){
-        return clienteList;
+    private List<Cliente> carregarClientes() {
+        try (Reader reader = new FileReader(filePath)) {
+            Gson gson = new Gson();
+            Type clienteListType = new TypeToken<List<Cliente>>() {}.getType();
+            return gson.fromJson(reader, clienteListType); // Lê o arquivo JSON e converte para lista de clientes
+        } catch (FileNotFoundException e) {
+            return new ArrayList<>(); // Retorna uma lista vazia se o arquivo não for encontrado
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
     }
 
     public Cliente consultarPorCpf(String cpf) {
-        return clienteList.stream()
+        return clientes.stream()
                 .filter(cliente -> cliente.getCpf().equals(cpf))
                 .findFirst()
                 .orElse(null);
-    }
-    public Cliente consultarPorEmail(String email) {
-        return clienteList.stream()
-                .filter(cliente -> cliente.getEmail().equals(email))
-                .findFirst()
-                .orElse(null);
-    }
-    public void atualizarEmailCliente(String email, String cpf){
-        Cliente cliente = consultarPorCpf(cpf);
-        if(cliente != null){
-            cliente.setEmail(email);
-            System.out.println("Email atualizado com sucesso");
-        }
-        else {
-            System.out.println("Cliente não encontrado");
-        }
-    }
-
-    public void atualizarTelefoneCliente(String telefone, String cpf){
-        Cliente cliente = consultarPorCpf(cpf);
-        if(cliente != null){
-            cliente.setTelefone(telefone);
-            System.out.println("Telefone atualizado com sucesso");
-        }else{
-            System.out.println("Cliente não encontrado");
-        }
     }
 
     public void atualizarClientePorCpf(String cpf, String novoNome, String novoEmail, String novoTelefone) {
@@ -82,16 +76,11 @@ public class ClienteService {
 
     public void removerClientePorCpf(String cpf) {
         Cliente cliente = consultarPorCpf(cpf);
-       try{
-           clienteList.remove(cliente);
-           System.out.println("Cliente removido com sucesso");
-       } catch (Exception e){
-           System.out.println("Erro ao remover cliente: " + e.getMessage());
-       }
-    }
-
-    public void removerClientePorEmail(String email) {
-        Cliente cliente = consultarPorEmail(email);
-        clienteList.remove(cliente);
+        try{
+            clientes.remove(cliente);
+            System.out.println("Cliente removido com sucesso");
+        } catch (Exception e){
+            System.out.println("Erro ao remover cliente: " + e.getMessage());
+        }
     }
 }

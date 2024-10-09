@@ -1,0 +1,25 @@
+[
+  {
+    "data": "2024-10-12",
+    "idAgendamento": 0,
+    "cliente": {
+      "nome": "eweweewew",
+      "email": "wewe@adadw.com",
+      "telefone": "2131312321",
+      "cpf": "12345678911"
+    },
+    "veiculo": {
+      "marca": "honda",
+      "modelo": "civic",
+      "ano": 2024,
+      "placa": "AAA1234"
+    },
+    "servico": {
+      "descricao": "troca de oleo",
+      "idServico": 2,
+      "finalizado": false,
+      "preco": 200.0
+    },
+    "id": 5
+  }
+]

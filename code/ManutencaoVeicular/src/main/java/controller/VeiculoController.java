@@ -11,6 +11,10 @@ public class VeiculoController {
 
     VeiculoService veiculoService = new VeiculoService();
 
+    public VeiculoController(VeiculoService veiculoService) {
+        this.veiculoService = veiculoService;
+    }
+
     public VeiculoService getVeiculoService() {
         return veiculoService;
     }
