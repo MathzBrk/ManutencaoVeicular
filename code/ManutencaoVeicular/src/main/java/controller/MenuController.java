@@ -57,7 +57,7 @@ public class MenuController {
         scanner.close();
     }
 
-    private void gerarArquivoExcel() {
+    public void gerarArquivoExcel() {
         AgendamentoService agendamentoService = agendamentoController.getAgendamentoService();
 
         if (agendamentoService != null && !agendamentoService.listarAgendamentos().isEmpty()) {
