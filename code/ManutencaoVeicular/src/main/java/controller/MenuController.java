@@ -80,14 +80,14 @@ public class MenuController {
     private void gerarArquivoExcel() {
         AgendamentoService agendamentoService = agendamentoController.getAgendamentoService();
 
-        if (agendamentoService != null && !agendamentoService.listarAgendamentos().isEmpty()) {
+        if (agendamentoService != null && !agendamentoService.retornarAgendamentos().isEmpty()) {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Digite o nome que deseja colocar no arquivo Excel (sem a extensão .xlsx): ");
             String nomeArquivo = scanner.nextLine().trim();
 
             if (!nomeArquivo.isEmpty()) {
                 String caminhoArquivo = nomeArquivo + ".xlsx";
-                agendamentoExcelExporter.exportarAgendamentosParaExcel(agendamentoService.listarAgendamentos(), caminhoArquivo);
+                agendamentoExcelExporter.exportarAgendamentosParaExcel(agendamentoService.retornarAgendamentos(), caminhoArquivo);
                 System.out.println("Arquivo Excel gerado com sucesso: " + caminhoArquivo);
             } else {
                 System.out.println("Nome do arquivo inválido. Por favor, tente novamente.");

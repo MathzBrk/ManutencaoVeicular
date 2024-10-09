@@ -18,7 +18,7 @@ public class SimulacaoController {
 
         AgendamentoExcelExporter agendamentoExcelExporter = new AgendamentoExcelExporter();
         String caminhoArquivo = "agendamentos_simulados.xlsx";
-        agendamentoExcelExporter.exportarAgendamentosParaExcel(agendamentoService.listarAgendamentos(), caminhoArquivo);
+        agendamentoExcelExporter.exportarAgendamentosParaExcel(agendamentoService.retornarAgendamentos(), caminhoArquivo);
     }
 
 

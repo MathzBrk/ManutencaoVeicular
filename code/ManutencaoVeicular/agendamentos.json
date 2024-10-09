@@ -1,0 +1,68 @@
+[
+  {
+    "data": "2024-10-20",
+    "idAgendamento": 0,
+    "cliente": {
+      "nome": "matheus",
+      "email": "matheus@vbb.com",
+      "telefone": "998946178",
+      "cpf": "16647259627"
+    },
+    "veiculo": {
+      "marca": "fiat",
+      "modelo": "palio",
+      "ano": 2012,
+      "placa": "OOY1852"
+    },
+    "servico": {
+      "descricao": "troca de oleo",
+      "idServico": 2,
+      "finalizado": false,
+      "preco": 200.0
+    }
+  },
+  {
+    "data": "2024-10-10",
+    "idAgendamento": 4,
+    "cliente": {
+      "nome": "João Silva",
+      "email": "joao@gmail.com",
+      "telefone": "(11) 91234-5678",
+      "cpf": "123.456.789-00"
+    },
+    "veiculo": {
+      "marca": "Ford",
+      "modelo": "Fiesta",
+      "ano": 2015,
+      "placa": "ABC-1234"
+    },
+    "servico": {
+      "descricao": "Troca de óleo",
+      "idServico": 2,
+      "finalizado": false,
+      "preco": 120.0
+    }
+  },
+  {
+    "data": "2024-10-15",
+    "idAgendamento": 5,
+    "cliente": {
+      "nome": "Maria Oliveira",
+      "email": "maria@gmail.com",
+      "telefone": "(11) 97654-3210",
+      "cpf": "987.654.321-00"
+    },
+    "veiculo": {
+      "marca": "Chevrolet",
+      "modelo": "Onix",
+      "ano": 2018,
+      "placa": "XYZ-5678"
+    },
+    "servico": {
+      "descricao": "Alinhamento e balanceamento",
+      "idServico": 3,
+      "finalizado": false,
+      "preco": 200.0
+    }
+  }
+]

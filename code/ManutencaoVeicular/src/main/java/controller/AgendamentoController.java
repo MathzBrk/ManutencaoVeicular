@@ -67,11 +67,8 @@ public class AgendamentoController {
 
                     if (veiculo == null) {
                         System.out.println("Veículo não encontrado.");
-                        break; // Sai do case se o veículo não for encontrado
+                        break;
                     }
-
-                    int novoID = GeradorId.getProximoId();
-                    System.out.println("Id do agendamento: " + novoID);
 
                     System.out.println("Digite a data do agendamento (yyyy-mm-dd): ");
                     String dataAgendamento = scanner.nextLine();
@@ -100,6 +97,7 @@ public class AgendamentoController {
                     break;
                 case 2:
                     scanner.nextLine();
+                    agendamentoService.listarAgendamentos();
                     System.out.println("Digite o ID do agendamento que deseja buscar: ");
                     int idAgendamento = scanner.nextInt();
                     scanner.nextLine();

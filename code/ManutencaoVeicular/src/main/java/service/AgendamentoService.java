@@ -38,8 +38,18 @@ public class AgendamentoService {
         }
     }
 
-    public List<Agendamento> listarAgendamentos() {
+    public List<Agendamento> retornarAgendamentos() {
         return agendamentos;
+    }
+
+    public void listarAgendamentos(){
+        if(agendamentos.isEmpty()){
+            System.out.println("Não há agendamentos");
+        }else {
+            for (Agendamento agendamento : agendamentos) {
+                System.out.println("Agendamento ID: " + agendamento.getIdAgendamento());
+            }
+        }
     }
 
     public Optional<Agendamento> buscarAgendamentoPorId(int id) {

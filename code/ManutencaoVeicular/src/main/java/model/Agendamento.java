@@ -13,18 +13,16 @@ public class Agendamento {
     private Cliente cliente;
     private Veiculo veiculo;
     private Servico servico;
-    private Integer id;
 
     public Agendamento() {
     }
 
     public Agendamento(Cliente cliente, Veiculo veiculo, Servico servico, LocalDate data) {
-        this.idAgendamento = idAgendamento;
+        this.idAgendamento = GeradorId.getProximoId();
         this.cliente = cliente;
         this.veiculo = veiculo;
         this.servico = servico;
         this.data = data;
-        this.id = GeradorId.getProximoId();
     }
 
     public Cliente getCliente() {

@@ -61,7 +61,7 @@ public class VeiculoController {
                 case 2:
                     scanner.nextLine();
                     System.out.println("Digite a placa do veiculo que deseja consultar: ");
-                    placa = scanner.nextLine();
+                    placa = scanner.nextLine().toUpperCase();
 
                     Veiculo veiculo1 = veiculoService.buscarVeiculo(placa);
 
@@ -75,7 +75,7 @@ public class VeiculoController {
                 case 3:
                     scanner.nextLine();
                     System.out.println("Digite a placa do veiculo que deseja alterar: ");
-                    placa = scanner.nextLine();
+                    placa = scanner.nextLine().toUpperCase();
 
                     System.out.println("Digite a marca do veiculo que deseja alterar: ");
                     marca = scanner.nextLine();
@@ -93,7 +93,7 @@ public class VeiculoController {
                 case 4:
                     scanner.nextLine();
                     System.out.println("Digite a placa do veiculo que deseja remover: ");
-                    placa = scanner.nextLine();
+                    placa = scanner.nextLine().toUpperCase();
 
                     veiculoService.removerVeiculo(placa);
                     break;
