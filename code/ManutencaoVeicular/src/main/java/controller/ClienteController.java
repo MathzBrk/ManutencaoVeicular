@@ -9,11 +9,12 @@ import java.util.Scanner;
 
 public class ClienteController {
 
-    public ClienteService getClienteService() {
-        return clienteService;
+    private ClienteService clienteService;
+
+    public ClienteController(ClienteService clienteService) {
+        this.clienteService = clienteService;
     }
 
-    ClienteService clienteService = new ClienteService();
 
     public void menuCliente() throws ValidationException {
         Scanner scanner = new Scanner(System.in);
@@ -77,7 +78,7 @@ public class ClienteController {
                     String novoTelefone = scanner.nextLine();
 
                     clienteService.atualizarClientePorCpf(cpf, novoNome, novoEmail, novoTelefone);
-                break;
+                    break;
                 case 4:
                     scanner.nextLine();
                     System.out.println("Digite o cpf do cliente que deseja remover: ");

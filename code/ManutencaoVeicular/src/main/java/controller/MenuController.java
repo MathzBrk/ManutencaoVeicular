@@ -3,15 +3,35 @@ package controller;
 import exception.ValidationException;
 import exporter.AgendamentoExcelExporter;
 import service.AgendamentoService;
+import service.ClienteService;
+import service.ServicoService;
+import service.VeiculoService;
 
 import java.util.Scanner;
 
 public class MenuController {
 
-    private ClienteController clienteController = new ClienteController();
-    private VeiculoController veiculoController = new VeiculoController();
-    private ServicoController servicoController = new ServicoController();
-    private AgendamentoController agendamentoController = new AgendamentoController(clienteController.getClienteService(), veiculoController.getVeiculoService(), servicoController.getServicoService());
+    private ClienteService clienteService;
+    private VeiculoService veiculoService;
+    private ServicoService servicoService;
+    private AgendamentoService agendamentoService;
+
+    private ClienteController clienteController;
+    private VeiculoController veiculoController;
+    private ServicoController servicoController;
+    private AgendamentoController agendamentoController;
+
+    public MenuController() {
+        this.clienteService = new ClienteService();
+        this.veiculoService = new VeiculoService();
+        this.servicoService = new ServicoService();
+        this.agendamentoService = new AgendamentoService();
+
+        this.clienteController = new ClienteController(clienteService);
+        this.veiculoController = new VeiculoController(veiculoService);
+        this.servicoController = new ServicoController(servicoService);
+        this.agendamentoController = new AgendamentoController(clienteService, veiculoService, servicoService, agendamentoService);
+    }
     private AgendamentoExcelExporter agendamentoExcelExporter = new AgendamentoExcelExporter();
 
     public void displayMenu() throws ValidationException {
@@ -57,7 +77,7 @@ public class MenuController {
         scanner.close();
     }
 
-    public void gerarArquivoExcel() {
+    private void gerarArquivoExcel() {
         AgendamentoService agendamentoService = agendamentoController.getAgendamentoService();
 
         if (agendamentoService != null && !agendamentoService.listarAgendamentos().isEmpty()) {
