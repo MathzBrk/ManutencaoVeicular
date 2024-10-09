@@ -22,8 +22,8 @@ public class ServicoService {
         this.gson = new GsonBuilder().setPrettyPrinting().create();
         this.servicos = new ArrayList<>();
         adicionarServico(new Servico("Troca de óleo", 150.0));
-        adicionarServico(new Servico("Alinhamento e balanceamento", 1200.0));
-        adicionarServico(new Servico("Revisão completa", 3000.0));
+        adicionarServico(new Servico("Alinhamento e balanceamento", 120.0));
+        adicionarServico(new Servico("Revisão completa", 300.0));
         carregarServicos();
     }
 
@@ -71,6 +71,18 @@ public class ServicoService {
             System.out.println("Serviço não encontrado!!!");
         }
     }
+
+    public void atualizarPrecoServico(int id, double preco) {
+        Servico servico = buscarServicoPorId(id);
+        if (servico != null) {
+            servico.setPreco(preco);
+            salvarServicos();
+            System.out.println("Preço atualizado com sucesso!");
+        } else {
+            System.out.println("Serviço com ID " + id + " não encontrado. Não foi possível atualizar o preço.");
+        }
+    }
+
 
     public void removerServico(int id) {
         Servico servico = buscarServicoPorId(id);

@@ -51,6 +51,7 @@ public class ClienteController {
                     break;
                 case 2:
                     scanner.nextLine();
+                    clienteService.listarClientes();
                     System.out.println("Digite o cpf do cliente que deseja consultar: ");
                     cpf = scanner.nextLine(); // Agora será lido corretamente
 
@@ -65,6 +66,7 @@ public class ClienteController {
 
                 case 3:
                     scanner.nextLine();
+                    clienteService.listarClientes();
                     System.out.print("Digite o CPF do cliente que deseja alterar: ");
                     cpf = scanner.nextLine();
 
@@ -81,6 +83,7 @@ public class ClienteController {
                     break;
                 case 4:
                     scanner.nextLine();
+                    clienteService.listarClientes();
                     System.out.println("Digite o cpf do cliente que deseja remover: ");
                     cpf = scanner.nextLine();
 

@@ -1,20 +1,20 @@
 [
   {
     "descricao": "Troca de óleo",
-    "idServico": 17,
+    "idServico": 23,
     "finalizado": false,
     "preco": 150.0
   },
   {
     "descricao": "Alinhamento e balanceamento",
-    "idServico": 18,
+    "idServico": 24,
     "finalizado": false,
-    "preco": 1200.0
+    "preco": 120.0
   },
   {
     "descricao": "Revisão completa",
-    "idServico": 19,
+    "idServico": 25,
     "finalizado": false,
-    "preco": 3000.0
+    "preco": 300.0
   }
 ]

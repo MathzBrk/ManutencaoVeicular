@@ -82,4 +82,10 @@ public class VeiculoService {
             System.out.println("Erro ao carregar veículos: " + e.getMessage());
         }
     }
+
+    public void printarVeiculos(){
+        for (Veiculo veiculo : veiculos) {
+            System.out.println("Veiculo placa: " + veiculo.getPlaca());
+        }
+    }
 }

@@ -57,6 +57,7 @@ public class ServicoController {
                     break;
                 case 2:
                     scanner.nextLine();
+                    servicoService.listarServicos();
                     System.out.println("Digite o ID do servico que deseja consultar: ");
                     int idServico = scanner.nextInt();
                     scanner.nextLine();
@@ -71,14 +72,17 @@ public class ServicoController {
                     break;
                 case 3:
                     scanner.nextLine();
-                    System.out.println("Digite o ID do servico que deseja atualizar o Status: ");
-                    int statusServico = scanner.nextInt();
+                    servicoService.listarServicos();
+                    System.out.println("Digite o ID do servico que deseja atualizar o preço: ");
+                    int id = scanner.nextInt();
+                    double precoNovo = scanner.nextDouble();
                     scanner.nextLine();
 
-                    servicoService.atualizarStatusServico(statusServico);
+                    servicoService.atualizarPrecoServico(id, precoNovo);
                     break;
                 case 4:
                     scanner.nextLine();
+                    servicoService.listarServicos();
                     System.out.println("Digite o ID do servico que deseja remover: ");
                     idServico = scanner.nextInt();
                     scanner.nextLine();

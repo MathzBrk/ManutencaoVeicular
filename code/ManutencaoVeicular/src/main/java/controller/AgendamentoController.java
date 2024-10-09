@@ -115,6 +115,7 @@ public class AgendamentoController {
                     break;
                 case 3:
                     scanner.nextLine();
+                    agendamentoService.listarAgendamentos();
                     System.out.println("Digite o id do agendamento que deseja atualizar: ");
                     idAgendamento = scanner.nextInt();
                     scanner.nextLine();
@@ -143,6 +144,7 @@ public class AgendamentoController {
                     break;
                 case 4:
                     scanner.nextLine();
+                    agendamentoService.listarAgendamentos();
                     System.out.println("Digite o ID do agendamento que deseja remover: ");
                     idAgendamento = scanner.nextInt();
                     scanner.nextLine();

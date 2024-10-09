@@ -18,8 +18,12 @@ public class ClienteService {
     }
 
     public void adicionarCliente(Cliente cliente) {
-        clientes.add(cliente);
-        salvarClientes(); // Salva os clientes sempre que um novo cliente é adicionado
+        try {
+            clientes.add(cliente);
+            salvarClientes();
+        } catch (Exception e) {
+            System.out.println("Erro ao adicionar cliente: " + e.getMessage());
+        }
     }
 
     public List<Cliente> getClientes() {
@@ -70,6 +74,12 @@ public class ClienteService {
             System.out.println("Cliente atualizado com sucesso.");
         } else {
             System.out.println("Cliente não encontrado.");
+        }
+    }
+
+    public void listarClientes(){
+        for (Cliente cliente : clientes) {
+            System.out.println("CPF cliente: " + cliente.getCpf());
         }
     }
 
