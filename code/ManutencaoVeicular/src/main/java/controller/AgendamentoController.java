@@ -80,7 +80,8 @@ public class AgendamentoController {
                         System.out.println("Data inválida. Formato esperado: yyyy-mm-dd");
                         break; // Sai do case em caso de erro
                     }
-
+                    System.out.println("---Serviços disponíveis---");
+                    servicoService.listarServicos();
                     System.out.println("Digite qual o id do serviço: ");
                     int id = scanner.nextInt();
                     Servico servico = servicoService.buscarServicoPorId(id);
@@ -93,6 +94,7 @@ public class AgendamentoController {
                     Agendamento agendamento = new Agendamento(cliente, veiculo, servico, data);
                     AgendamentoValidator.validar(agendamento);
                     agendamentoService.adicionarAgendamento(agendamento);
+                    System.out.println("ID agendamento: " + agendamento.getIdAgendamento());
 
                     break;
                 case 2:

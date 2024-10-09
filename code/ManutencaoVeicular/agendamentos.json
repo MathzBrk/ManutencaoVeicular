@@ -64,5 +64,27 @@
       "finalizado": false,
       "preco": 200.0
     }
+  },
+  {
+    "data": "2024-10-20",
+    "idAgendamento": 20,
+    "cliente": {
+      "nome": "matheus",
+      "email": "matheus@vbb.com",
+      "telefone": "998946178",
+      "cpf": "16647259627"
+    },
+    "veiculo": {
+      "marca": "fiat",
+      "modelo": "palio",
+      "ano": 2012,
+      "placa": "OOY1852"
+    },
+    "servico": {
+      "descricao": "Troca de óleo",
+      "idServico": 14,
+      "finalizado": false,
+      "preco": 150.0
+    }
   }
 ]

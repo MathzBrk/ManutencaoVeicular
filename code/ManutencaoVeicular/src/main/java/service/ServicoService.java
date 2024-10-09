@@ -21,6 +21,9 @@ public class ServicoService {
     public ServicoService() {
         this.gson = new GsonBuilder().setPrettyPrinting().create();
         this.servicos = new ArrayList<>();
+        adicionarServico(new Servico("Troca de óleo", 150.0));
+        adicionarServico(new Servico("Alinhamento e balanceamento", 1200.0));
+        adicionarServico(new Servico("Revisão completa", 3000.0));
         carregarServicos();
     }
 
@@ -36,7 +39,8 @@ public class ServicoService {
 
     public void listarServicos() {
         for (Servico servico : servicos) {
-            System.out.println(servico);
+            System.out.println("Descrição: " + servico.getDescricao());
+            System.out.println("Id: " + servico.getIdServico());
         }
     }
 

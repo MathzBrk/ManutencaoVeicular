@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d2b798a-be04-4803-a41f-f8c94b3949af" name="Changes" comment=".">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agendamentos.json" beforeDir="false" afterPath="$PROJECT_DIR$/agendamentos.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientes.json" beforeDir="false" afterPath="$PROJECT_DIR$/clientes.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos.json" beforeDir="false" afterPath="$PROJECT_DIR$/servicos.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/AgendamentoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AgendamentoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/SimulacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/SimulacaoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/VeiculoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/VeiculoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Agendamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Agendamento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/AgendamentoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/AgendamentoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/ServicoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ServicoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/AgendamentoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/AgendamentoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/ServicoService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/ServicoService$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/ServicoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/ServicoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veiculos.json" beforeDir="false" afterPath="$PROJECT_DIR$/veiculos.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +118,7 @@
       <workItem from="1728323696223" duration="2918000" />
       <workItem from="1728326885173" duration="634000" />
       <workItem from="1728337874275" duration="4852000" />
-      <workItem from="1728471659381" duration="644000" />
+      <workItem from="1728471659381" duration="2719000" />
     </task>
     <task id="LOCAL-00001" summary="Organização dos pacotes">
       <option name="closed" value="true" />
