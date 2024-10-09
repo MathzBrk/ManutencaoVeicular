@@ -20,8 +20,8 @@ public class AgendamentoController {
     private ServicoService servicoService;
     private VeiculoService veiculoService;
 
-    public AgendamentoController(ClienteService clienteService, VeiculoService veiculoService, ServicoService servicoService) {
-        this.agendamentoService = new AgendamentoService();
+    public AgendamentoController(ClienteService clienteService, VeiculoService veiculoService, ServicoService servicoService, AgendamentoService agendamentoService) {
+        this.agendamentoService = agendamentoService;
         this.clienteService = clienteService;
         this.veiculoService = veiculoService;
         this.servicoService = servicoService;
@@ -53,7 +53,7 @@ public class AgendamentoController {
                 case 1:
                     scanner.nextLine();
                     System.out.println("Digite o CPF do cliente: ");
-                    String cpf = scanner.nextLine();
+                    String cpf = scanner.nextLine().trim();
                     Cliente cliente = clienteService.consultarPorCpf(cpf);
 
                     if (cliente == null) {

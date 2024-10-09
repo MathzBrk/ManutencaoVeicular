@@ -1,0 +1,25 @@
+[
+  {
+    "data": "2024-10-11",
+    "idAgendamento": 0,
+    "cliente": {
+      "nome": "wwwwww",
+      "email": "www@gmail.com",
+      "telefone": "1231313123131",
+      "cpf": "12345678911"
+    },
+    "veiculo": {
+      "marca": "honda",
+      "modelo": "careca",
+      "ano": 1970,
+      "placa": "AAA1234"
+    },
+    "servico": {
+      "descricao": "troca de oleo",
+      "idServico": 1,
+      "finalizado": false,
+      "preco": 200.0
+    },
+    "id": 2
+  }
+]

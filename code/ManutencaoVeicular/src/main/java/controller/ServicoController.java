@@ -12,6 +12,10 @@ public class ServicoController {
 
     ServicoService servicoService = new ServicoService();
 
+    public ServicoController(ServicoService servicoService) {
+        this.servicoService = servicoService;
+    }
+
     public ServicoService getServicoService() {
         return servicoService;
     }

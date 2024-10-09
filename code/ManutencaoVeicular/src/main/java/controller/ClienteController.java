@@ -9,11 +9,12 @@ import java.util.Scanner;
 
 public class ClienteController {
 
-    public ClienteService getClienteService() {
-        return clienteService;
+    private ClienteService clienteService;
+
+    public ClienteController(ClienteService clienteService) {
+        this.clienteService = clienteService;
     }
 
-    ClienteService clienteService = new ClienteService();
 
     public void menuCliente() throws ValidationException {
         Scanner scanner = new Scanner(System.in);
